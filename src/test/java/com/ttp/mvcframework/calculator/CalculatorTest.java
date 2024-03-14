@@ -29,7 +29,7 @@ public class CalculatorTest {
     @ParameterizedTest // JUnit5의 ParameterizedTest
     @MethodSource("formularAndResult")
     void additionTest(int operand1, String operator, int operand2, int expected) {
-        int result = Calculator.calculate(operand1, operator, operand2);
+        int result = Calculator.calculation(operand1, operator, operand2);
         assertThat(result).isEqualTo(expected);
     }
 
