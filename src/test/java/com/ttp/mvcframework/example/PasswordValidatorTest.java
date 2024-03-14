@@ -33,7 +33,6 @@ class PasswordValidatorTest {
 
         // when, then
         assertThatCode(() -> passwordValidator.validate(password)).doesNotThrowAnyException();
-
     }
 
 

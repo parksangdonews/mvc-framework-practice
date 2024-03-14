@@ -42,7 +42,16 @@ public enum ArithmeticOperator {
         this.operator = operator;
     }
 
+
+    /**
+     * 외부에 노출되는 인터페이스 역할
+     * @param operand1
+     * @param operator
+     * @param operand2
+     * @return
+     */
     public static int calculation(int operand1, String operator, int operand2) {
+        // operator에 해당하는 enum을 찾아서 해당 enum의 artimeticsCalculate 메소드를 호출
         ArithmeticOperator arithmeticOperator = Arrays.stream(values())
             .filter(value -> value.operator.equals(operator))
             .findFirst()
@@ -51,7 +60,14 @@ public enum ArithmeticOperator {
         return arithmeticOperator.artimeticsCalculate(operand1, operand2);
     }
 
-    public abstract int artimeticsCalculate(final int operand1, final int operand2); // body
+
+    /**
+     * 연산을 수행하는 메소드 / 추상 메소드
+     * @param operand1
+     * @param operand2
+     * @return
+     */
+    protected abstract int artimeticsCalculate(final int operand1, final int operand2); // body
 
 
 }

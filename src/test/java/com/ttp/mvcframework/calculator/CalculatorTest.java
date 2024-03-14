@@ -1,9 +1,11 @@
 package com.ttp.mvcframework.calculator;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatCode;
 
 import java.util.stream.Stream;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.TestInstance;
 import org.junit.jupiter.api.TestInstance.Lifecycle;
 import org.junit.jupiter.params.ParameterizedTest;
@@ -42,4 +44,11 @@ public class CalculatorTest {
         );
     }
 
+    @DisplayName("나눗셈에서 0을 나누는 경우 IllegalArgument 예외를 발생시킨다.") // 뺄셈 곱셈 나눗셈도 마찬가지 ~
+    @Test // JUnit5의 ParameterizedTest
+    void calculateExceptionTest() {
+        assertThatCode(() -> Calculator.calculation(1, "/", 0))
+            .isInstanceOf(IllegalArgumentException.class)
+            .hasMessage("Divide by zero");
+    }
 }
