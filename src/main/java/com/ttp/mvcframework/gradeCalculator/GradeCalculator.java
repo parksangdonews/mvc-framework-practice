@@ -26,7 +26,6 @@ public class GradeCalculator {
     /**
      * 평균학점 계산
      *
-     * @param courses 이수한 과목
      * @return
      */
     public double calculateAverageGrade() {
